@@ -3,6 +3,17 @@
 cmake_minimum_required(VERSION 3.5)
 find_package(CUDA QUIET REQUIRED)
 
+# Tell CMake to run moc when necessary:  
+set(CMAKE_AUTOMOC ON) 
+
+# As moc files are generated in the binary dir, tell CMake  
+# to always look for includes there:  
+set(CMAKE_INCLUDE_CURRENT_DIR ON)  
+
+# Pass additional compiler flags (non-nvcc):
+#set(EXTRA_CXX_FLAGS "--std=c++11" CACHE STRING "common C++ build flags")  
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXTRA_CXX_FLAGS}")  
+
 # Pass options to NVCC
 #set(
 #    CUDA_NVCC_FLAGS
@@ -21,6 +32,13 @@ find_package(CUDA QUIET REQUIRED)
 #    /opt/foobar/lib
 #    /opt/joestuff/lib
 #    )
+
+#ALL the source files  
+#set(SOURCES  
+#   src/hellocuda.cu
+#)  
+
+#cuda_compile(CUDA_OBJECTS cudakernel.cu)
 
 # For compilation ...
 # Specify target & source files to compile it from
@@ -41,3 +59,12 @@ cuda_add_executable(
 #    -lfoobar
 #    -ljoestuff
 #    )
+
+#Build the rest of the executable.  
+#add_executable(${EXECUTABLE_NAME} ${SOURCES} ${HEADERS} ${UI_HEADERS} ${CUDA_OBJECTS})  
+
+#Remember dependencies!  
+#target_link_libraries(${EXECUTABLE_NAME} GL ${CUDA_LIBRARIES})  
+
+#Add the Qt stuff.  
+#qt5_use_modules(${EXECUTABLE_NAME} Widgets OpenGL)  

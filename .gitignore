@@ -2,3 +2,6 @@ CUDA Samples
 RemoteSystemsTempFiles
 .metadata
 build
+CMakeLists.txt.user
+.cproject
+.project
