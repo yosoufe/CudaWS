@@ -3,5 +3,3 @@ RemoteSystemsTempFiles
 .metadata
 build
 CMakeLists.txt.user
-.cproject
-.project
